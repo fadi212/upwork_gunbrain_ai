@@ -1,0 +1,15 @@
+fastapi==0.115.6
+llama-index==0.12.2
+llama-index-vector-stores-pinecone==0.4.1
+pinecone-client~=4.1.2
+unstructured-client==0.28.1
+unstructured-ingest[s3]==0.3.6
+uvicorn==0.32.1
+boto3==1.35.36
+python-multipart
+botocore~=1.35.88
+openai~=1.58.1
+pydantic~=2.9.2
+tiktoken~=0.8.0
+llama-index-core~=0.12.9
+aryn-sdk==0.1.10

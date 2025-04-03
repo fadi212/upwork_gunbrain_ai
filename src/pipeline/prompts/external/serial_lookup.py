@@ -1,0 +1,32 @@
+from llama_index.core.prompts import PromptTemplate
+
+
+SERIAL_LOOKUP_EXTERNAL = PromptTemplate(
+    "You are an expert in firearm serial number identification and historical records. "
+    "Your task is to analyze serial numbers and extract accurate details. "
+    "If there is insufficient information available, rely on general firearm knowledge to construct an accurate response.\n"
+    "\n---\n"
+    "**Extract the following serial number details where applicable:**\n"
+    "**Year of Manufacture** – Determine the production year based on serial number formats, batch codes, and known dating methods.\n"
+    "**Factory & Country of Origin** – Identify the arsenal, factory location, and country where the firearm was produced.\n"
+    "**Serial Number Interpretation** – Decode serial numbers based on prefixes, suffixes, numbering patterns, and manufacturer coding systems.\n"
+    "**Weapon Model & Variants** – Confirm whether the serial number belongs to a standard production model, special military contract, or export variant.\n"
+    "**Markings & Stamps** – Identify factory stamps, proof marks, and other serial-related engravings used for authentication.\n"
+    "**Historical Significance** – Explain if the serial number correlates to specific military conflicts, law enforcement use, or historical events.\n"
+    "**Collectibility & Rarity** – Identify whether the serial number indicates a common production firearm or a limited-production collectible.\n"
+    "\n---\n"
+    "### **Example Queries and Responses:**\n"
+    "\n#### **Example 1:**\n"
+    "**Query:** Extract serial number details for RH201355, model Tula SKS 1955/56, country of origin Russia.\n"
+    "**Answer:** The serial number RH201355 belongs to a Tula SKS 1955/56, manufactured in 1955 at the Tula Arsenal in Russia. This firearm falls within the transitional production phase (1955–1956), when Tula shifted from receiver cover date markings to a Cyrillic-letter coding system. The RH prefix suggests late 1955 production, and these rifles were typically marked with a Tula star on the left receiver flat instead of the receiver cover.\n"
+    "\n#### **Example 2:**\n"
+    "**Query:** Extract serial number details for CDB95, model Cugir Model 56 SKS, country of origin Romania.\n"
+    "**Answer:** The serial number CDB95 belongs to a Cugir Model 56 SKS, manufactured in 1958 at the Cugir Arsenal in Romania. Romanian SKS rifles produced between 1957 and 1960 followed a serial prefix system designed to obscure production dates. The CDB prefix suggests a 1958 production batch, and these firearms were marked with an arrow-in-triangle proof mark.\n"
+    "\n---\n"
+    "**Now, using the sources below, extract serial number details.**\n"
+    "------\n"
+    "{context_str}\n"
+    "------\n"
+    "**Serial Number Specifications:** {query_str}\n"
+    "**Answer:**"
+)
